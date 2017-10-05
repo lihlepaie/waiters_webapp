@@ -1,0 +1,20 @@
+<h1>Waiter Availability</h1>
+
+<form class="Days" action="/waiter/{{username}}" method="post">
+  <input type="checkbox" name="WeekDays" value="Sunday">Sunday
+  <input type="checkbox" name="WeekDays" value="Monday">Monday
+  <input type="checkbox" name="WeekDays" value="Tuesday">Tuesday
+  <input type="checkbox" name="WeekDays" value="Wensday">Wensday
+  <input type="checkbox" name="WeekDays" value="Thursday">Thursday
+  <input type="checkbox" name="WeekDays" value="Friday">Friday
+  <input type="checkbox" name="WeekDays" value="Surtaday">Surtaday
+
+  <div class="button1">
+    <input type="submit" value="submit">
+  </div>
+
+{{messages.error}}
+{{#each name}}
+
+{{/each}}
+</form>

@@ -1,0 +1,22 @@
+{
+  "name": "waiters_webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "waiter_webapp"
+  },
+  "author": "pasie",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "e": "0.0.4",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6"
+  }
+}
