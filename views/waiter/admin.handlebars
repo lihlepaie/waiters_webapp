@@ -1,0 +1,59 @@
+<h1>Timetable for weekday shift</h1>
+<div class="container text-center">
+<p>
+{{waiterList}}
+</p>
+<form action="/days" method="get">
+<table class="table-bordered">
+                <thead>
+                  <tr>
+                    <th>Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wensday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Surtuday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ul>
+                  <td class="{{Sunday}}">
+                    {{#each days.Sunday.waiter}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                  </td>
+                  <td class="{{Monday}}">
+                    {{#each days.Monday.waiter}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                  </td>
+                  <td class="{{Tuesday}}">
+                    {{#each days.Tuesday.waiter}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                  </td>
+                  <td class="{{Wednesday}}">
+                    {{#each days.Wednesday.waiter}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                  </td>
+                  <td class="{{Thursday}}">
+                    {{#each days.Thursday.waiter}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                  </td>
+                  <td class="{{Friday}}">
+                    {{#each days.Friday.waiter}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                  </td>
+                  <td class="{{Saturday}}">
+                    {{#each days.Saturday.waiter}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                  </td>
+</ul>
+</table>
+  </tbody>
+  </form>

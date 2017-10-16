@@ -10,7 +10,17 @@ module.exports = function(mongoUrl) {
 
 
     var WaitersSchema = mongoose.model('WaitersSchema', {
-        name: String
+        name: String,
+        days:Array
+        //   Sunday:String,
+        //   Monday:String,
+        //   Tuesday:String,
+        //   Wednesday:String,
+        //   Thursday:String,
+        //   Friday:String,
+        //   Saturday:String
+        // }
+
     });
 
     return {
