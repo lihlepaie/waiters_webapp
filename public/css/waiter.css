@@ -5,3 +5,13 @@ background-image: url('https://previews.123rf.com/images/vanilladesign/vanillade
 h1{
   background-color: blue;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
