@@ -29,7 +29,7 @@ app.use(flash());
 app.get('/waiter/:username', waiterRoutes.index);
 app.post('/waiter/:username', waiterRoutes.Viewdays);
 app.get('/days', waiterRoutes.AddDays);
-
+app.get('/Reset', waiterRoutes.Reset);
 
 //start the server
 app.set('port',(process.env.PORT || 3001) );
