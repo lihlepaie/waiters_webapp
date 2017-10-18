@@ -18,6 +18,7 @@ module.exports = function(models) {
 
     }
 
+
     const Viewdays = function(req, res, next) {
         var names = req.params.username;
         console.log(names);
@@ -35,6 +36,18 @@ module.exports = function(models) {
             waiter: names
         })
     }
+
+    const color = function(colors){
+   if(colors === 3){
+     return "colorThree";
+   }
+   if(colors < 3){
+     return "colorTwo";
+   }
+   if(colors > 3){
+     return "colorOne";
+   }
+}
     const AddDays = function(req, res, next) {
         var shiftDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         models.WaitersSchema.find({}, function(err, waiter) {
@@ -99,8 +112,8 @@ module.exports = function(models) {
                 add: add.Monday.waiter,
                 add2: add.Tuesday.waiter,
                 add3: add.Wednesday.waiter,
-                add4: add.Thursday.waiter,
                 add5: add.Friday.waiter,
+                add4: add.Thursday.waiter,
                 add6: add.Saturday.waiter
 
             })
@@ -114,6 +127,7 @@ module.exports = function(models) {
       res.redirect("/days");
     })
     }
+
 
     return {
         index,
