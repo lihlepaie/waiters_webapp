@@ -95,7 +95,7 @@ module.exports = function(models) {
                         add.Wednesday.waiter.push(waiter.name)
                     }
                     if (day == 'Thursday') {
-                        add.Thursday.waiter.push(waiter.name)
+                        add.Thursdaihy.waiter.push(waiter.name)
                     }
                     if (day == 'Friday') {
                         add.Friday.waiter.push(waiter.name)
