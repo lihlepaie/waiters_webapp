@@ -37,17 +37,17 @@ module.exports = function(models) {
         })
     }
 
-    const color = function(colors){
-   if(colors === 3){
-     return "colorThree";
-   }
-   if(colors < 3){
-     return "colorTwo";
-   }
-   if(colors > 3){
-     return "colorOne";
-   }
-}
+    const color = function(colors) {
+        if (colors === 3) {
+            return "colorOne";
+        } else
+        if(colors < 3) {
+            return "colorTwo";
+        }else
+        if(colors > 3) {
+            return "colorThree";
+        }
+    }
     const AddDays = function(req, res, next) {
         var shiftDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         models.WaitersSchema.find({}, function(err, waiter) {
@@ -95,7 +95,7 @@ module.exports = function(models) {
                         add.Wednesday.waiter.push(waiter.name)
                     }
                     if (day == 'Thursday') {
-                        add.Thursdaihy.waiter.push(waiter.name)
+                        add.Thursday.waiter.push(waiter.name)
                     }
                     if (day == 'Friday') {
                         add.Friday.waiter.push(waiter.name)
@@ -109,23 +109,29 @@ module.exports = function(models) {
 
             res.render("waiter/admin", {
                 add1: add.Sunday.waiter,
+                Sundaycolors:color(add.Sunday.waiter.length),
                 add: add.Monday.waiter,
+                Mondaycolors:color(add.Monday.waiter.length),
                 add2: add.Tuesday.waiter,
+                Tuesdaycolors:color(add.Tuesday.waiter.length),
                 add3: add.Wednesday.waiter,
-                add5: add.Friday.waiter,
+                Wednesdaycolors:color(add.Wednesday.waiter.length),
                 add4: add.Thursday.waiter,
-                add6: add.Saturday.waiter
-
+                Thursdaycolors:color(add.Thursday.waiter.length),
+                add5: add.Friday.waiter,
+                Fridaycolors:color(add.Friday.waiter.length),
+                add6: add.Saturday.waiter,
+                Saturdaycolors:color(add.Saturday.waiter.length)
             })
         })
     }
     const Reset = function(req, res) {
-      models.WaitersSchema.remove({}, function(err, remove) {
-        if (err) {
-            return(err);
-        }
-      res.redirect("/days");
-    })
+        models.WaitersSchema.remove({}, function(err, remove) {
+            if (err) {
+                return (err);
+            }
+            res.redirect("/days");
+        })
     }
 
 
