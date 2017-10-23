@@ -108,21 +108,27 @@ module.exports = function(models) {
             })
 
             res.render("waiter/admin", {
-                add1: add.Sunday.waiter,
-                Sundaycolors:color(add.Sunday.waiter.length),
-                add: add.Monday.waiter,
-                Mondaycolors:color(add.Monday.waiter.length),
-                add2: add.Tuesday.waiter,
-                Tuesdaycolors:color(add.Tuesday.waiter.length),
-                add3: add.Wednesday.waiter,
-                Wednesdaycolors:color(add.Wednesday.waiter.length),
-                add4: add.Thursday.waiter,
-                Thursdaycolors:color(add.Thursday.waiter.length),
-                add5: add.Friday.waiter,
-                Fridaycolors:color(add.Friday.waiter.length),
-                add6: add.Saturday.waiter,
+                  add1: add.Sunday.waiter,
+                 Sundaycolors:color(add.Sunday.waiter.length),
+
+                  add2: add.Monday.waiter,
+                 Mondaycolors:color(add.Monday.waiter.length),
+
+                  add3: add.Tuesday.waiter,
+                 Tuesdaycolors:color(add.Tuesday.waiter.length),
+
+                  add4: add.Wednesday.waiter,
+                 Wednesdaycolors:color(add.Wednesday.waiter.length),
+
+                  add5: add.Thursday.waiter,
+                 Thursdaycolors:color(add.Thursday.waiter.length),
+
+                 add6: add.Friday.waiter,
+                 Fridaycolors:color(add.Friday.waiter.length),
+
+                 add7: add.Saturday.waiter,
                 Saturdaycolors:color(add.Saturday.waiter.length)
-            })
+              })
         })
     }
     const Reset = function(req, res) {
