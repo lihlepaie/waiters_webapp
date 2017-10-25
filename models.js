@@ -9,13 +9,15 @@ module.exports = function(mongoUrl) {
     });
 
 
-    var WaitersSchema = mongoose.model('WaitersSchema', {
+    var WaitersSchema = mongoose.Schema({
         name: String,
-        days:Array
-      
+        days: Array
     });
 
-    return {
-        WaitersSchema
-    }
+WaitersSchema.index({name: 1}, {unique: true})
+var waiters = mongoose.model('waiters', WaitersSchema);
+
+return {
+    waiters
+}
 }

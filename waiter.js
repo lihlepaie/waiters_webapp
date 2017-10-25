@@ -23,34 +23,47 @@ module.exports = function(models) {
         var names = req.params.username;
         console.log(names);
         var Week = req.body.WeekDays
-        models.WaitersSchema.create({
+        var nameShift = {
             name: names,
             days: Week
-        }, function(err, results) {
+        }
+        models.waiters.create(nameShift, function(err, results) {
             if (err) {
-                return next(err)
+                if (err.code === 11000) {
+                    models.waiters.findOne({
+                        name: nameShift.name
+                    }, function(err, foundName) {
+                        if (err) {
+                            return next();
+                        } else {
+                            foundName.days = nameShift.days
+                            foundName.save()
+                        }
+                    })
+                }
             }
         })
         console.log(Week);
         res.render('waiter/add', {
-            waiter: names
+          waiter: names
         })
+        
     }
 
     const color = function(colors) {
         if (colors === 3) {
             return "colorOne";
         } else
-        if(colors < 3) {
+        if (colors < 3) {
             return "colorTwo";
-        }else
-        if(colors > 3) {
+        } else
+        if (colors > 3) {
             return "colorThree";
         }
     }
     const AddDays = function(req, res, next) {
         var shiftDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        models.WaitersSchema.find({}, function(err, waiter) {
+        models.waiters.find({}, function(err, waiter) {
             if (err) {
                 return next(err);
             }
@@ -108,31 +121,31 @@ module.exports = function(models) {
             })
 
             res.render("waiter/admin", {
-                  add1: add.Sunday.waiter,
-                 Sundaycolors:color(add.Sunday.waiter.length),
+                add1: add.Sunday.waiter,
+                Sundaycolors: color(add.Sunday.waiter.length),
 
-                  add2: add.Monday.waiter,
-                 Mondaycolors:color(add.Monday.waiter.length),
+                add2: add.Monday.waiter,
+                Mondaycolors: color(add.Monday.waiter.length),
 
-                  add3: add.Tuesday.waiter,
-                 Tuesdaycolors:color(add.Tuesday.waiter.length),
+                add3: add.Tuesday.waiter,
+                Tuesdaycolors: color(add.Tuesday.waiter.length),
 
-                  add4: add.Wednesday.waiter,
-                 Wednesdaycolors:color(add.Wednesday.waiter.length),
+                add4: add.Wednesday.waiter,
+                Wednesdaycolors: color(add.Wednesday.waiter.length),
 
-                  add5: add.Thursday.waiter,
-                 Thursdaycolors:color(add.Thursday.waiter.length),
+                add5: add.Thursday.waiter,
+                Thursdaycolors: color(add.Thursday.waiter.length),
 
-                 add6: add.Friday.waiter,
-                 Fridaycolors:color(add.Friday.waiter.length),
+                add6: add.Friday.waiter,
+                Fridaycolors: color(add.Friday.waiter.length),
 
-                 add7: add.Saturday.waiter,
-                Saturdaycolors:color(add.Saturday.waiter.length)
-              })
+                add7: add.Saturday.waiter,
+                Saturdaycolors: color(add.Saturday.waiter.length)
+            })
         })
     }
     const Reset = function(req, res) {
-        models.WaitersSchema.remove({}, function(err, remove) {
+        models.waiters.remove({}, function(err, remove) {
             if (err) {
                 return (err);
             }

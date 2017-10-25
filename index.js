@@ -32,7 +32,7 @@ app.get('/days', waiterRoutes.AddDays);
 app.get('/Reset', waiterRoutes.Reset);
 
 //start the server
-app.set('port',(process.env.PORT || 3001) );
+app.set('port',(process.env.PORT || 5000) );
 
 app.listen(app.get('port'), function(){
   console.log("Web app started on port: ", app.get('port'));
